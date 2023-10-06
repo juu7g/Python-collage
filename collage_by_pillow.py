@@ -33,11 +33,8 @@ class Image_processing():
             int:    結果(0:OK、-1:書き込みエラー)
         """
         # 保存パス
-        if hasattr(sys, '_MEIPASS'): # under pyinstaller
-            out_f_dir = os.path.dirname(sys.executable)
-        else:
-            out_f_dir =  '.'
-        out_f_name = "GIMP" + datetime.now().strftime('%y%m%d%H%M') + ".jpg"
+        out_f_dir = os.path.dirname(img_paths[0])   # 一つ目の画像のフォルダを出力フォルダにする
+        out_f_name = "collage" + datetime.now().strftime('%y%m%d%H%M') + ".jpg"
         new_path = os.path.join(out_f_dir, out_f_name)
 
         _width = img_width                          # 生成画像の幅
